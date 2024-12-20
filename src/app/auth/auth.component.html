@@ -1,0 +1,18 @@
+<div>
+  <h2>Autenticación</h2>
+  <form (ngSubmit)="login()">
+    <div>
+      <label for="codigoAlumno">Código de Alumno:</label>
+      <input id="codigoAlumno" [(ngModel)]="codigoAlumno" name="codigoAlumno" required />
+    </div>
+
+    <div>
+      <label for="fechaNacimiento">Contrasela</label>
+      <input id="fechaNacimiento" type="password" [(ngModel)]="fechaNacimiento" name="fechaNacimiento" required />
+    </div>
+
+    <button type="submit">Iniciar sesión</button>
+  </form>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

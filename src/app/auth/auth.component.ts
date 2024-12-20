@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -15,20 +16,15 @@ export class AuthComponent {
   fechaNacimiento: string = '';
   errorMessage: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   login(): void {
-    const storedCodigo = 'SM71400899';
-    const storedPassword = '10032005';
+    const isLoggedIn = this.authService.login(this.codigoAlumno, this.fechaNacimiento);
 
-    if (this.codigoAlumno === storedCodigo && this.fechaNacimiento === storedPassword) {
-      sessionStorage.setItem('codigoAlumno', this.codigoAlumno);
-      this.router.navigate(['/posts']);
+    if (isLoggedIn) {
+      this.router.navigate(['/users']);
     } else {
       this.errorMessage = 'Código de alumno o contraseña incorrectos';
     }
   }
 }
-
-
-

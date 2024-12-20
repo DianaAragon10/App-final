@@ -1,12 +1,14 @@
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Para animaciones
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-users',
-  imports: [MatToolbarModule, MatTableModule, BrowserAnimationsModule],
+  standalone: true,
+  imports: [MatToolbarModule, MatTableModule, RouterModule],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })

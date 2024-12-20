@@ -1,8 +1,9 @@
 <mat-toolbar color="primary">
   <span>JSONPlaceholder App</span>
   <span class="spacer"></span>
-  <button mat-button routerLink="/posts">Lista de Posts</button>
-  <button mat-button routerLink="/users">Lista de Usuarios</button>
+  <button mat-button *ngIf="isAuthenticated" routerLink="/posts">Lista de Posts</button>
+  <button mat-button *ngIf="isAuthenticated" routerLink="/users">Lista de Usuarios</button>
+  <button mat-button *ngIf="isAuthenticated" (click)="logout()">Cerrar sesión</button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
